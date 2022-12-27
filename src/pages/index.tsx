@@ -1,6 +1,7 @@
+import { Navbar } from "components";
 
 export default function Home() {
-  return (
-    <h1>Work</h1>
-  )
+    return (
+        <Navbar />
+    );
 }
