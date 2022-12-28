@@ -1,11 +1,15 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
 
-export interface IButton
-    extends DetailedHTMLProps<
-        ButtonHTMLAttributes<HTMLButtonElement>,
-        HTMLButtonElement
-    > {
-        uiType: TButton
+export interface IButton {
+    uiType: TButton;
+    className?: string;
+    children?: ReactNode;
+    onClick?: () => void;
 }
 
-type TButton = "logo" | "navbarMenu"
+export type TButton = "logo" | "navbarMenu";
+
+export interface IAccordanceUiType {
+    logo?: () => void;
+    navbarMenu?: () => void;
+}

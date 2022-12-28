@@ -1,0 +1,56 @@
+@use "styles/_var.module.scss" as *;
+
+.nav {
+    margin-right: 1rem;
+
+    &_enabled {
+        animation: forwards animateNavActive 0.5s ease;
+    }
+
+    &_disabled {
+        animation: forwards animateNavDisabled 0.5s ease;
+    }
+}
+
+.link {
+    margin-right: 1rem;
+    padding-bottom: 0.2rem;
+    border-radius: 0.2rem;
+
+    &_active {
+        color: $colorLinkActive;
+    }
+
+    &_inactive {
+        color: $colorWhite;
+
+        &:hover,
+        &:active {
+            animation: forwards animateLinkHoverActive 0.5s ease;
+        }
+    }
+}
+
+@keyframes animateLinkHoverActive {
+    0% {
+        border-bottom: 0.2rem solid transparent;
+    }
+
+    100% {
+        border-bottom: 0.2rem solid $colorWhite;
+    }
+}
+
+@keyframes animateNavActive {
+    0% {
+        transform: translateX(5rem);
+        opacity: 0;
+    }
+}
+
+@keyframes animateNavDisabled {
+    100% {
+        transform: translateX(5rem);
+        opacity: 0;
+    }
+}

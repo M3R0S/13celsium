@@ -1,2 +1,3 @@
 export { useScrollToTop } from "./useScrollToTop/useScrollToTop";
-export { useChangeBooleanValue } from "./useChangeBooleanValue/useChangeBooleanValue";
+export { useDelayUnmounting } from "./useDelayUnmounting/useDelayUnmounting";
+export { useCheckingActivePage } from "./useCheckingActivePage/useCheckingActivePage"
