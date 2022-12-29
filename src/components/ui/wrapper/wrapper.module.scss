@@ -1,0 +1,13 @@
+@use "styles/_var.module.scss" as *;
+
+.navbar_and_footer {
+    width: $wrapperWidth;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_menu {
+    display: flex;
+    align-items: center;
+}

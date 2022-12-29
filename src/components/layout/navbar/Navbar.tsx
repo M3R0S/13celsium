@@ -1,17 +1,16 @@
 import { FC } from "react";
 
 import cl from "./navbar.module.scss";
-import { Button, Logo } from "components/ui";
-import { useScrollToTop } from "hook";
+import { Logo, Wrapper } from "components/ui";
 import { NavbarMenu } from "./menu/NavbarMenu";
 
 export const Navbar: FC = () => {
     return (
         <header className={cl.header}>
-            <div className={cl.wrapper}>
+            <Wrapper uiType="navbarAndFooter">
                 <Logo uiType={"mini"} />
                 <NavbarMenu />
-            </div>
+            </Wrapper>
         </header>
     );
 };

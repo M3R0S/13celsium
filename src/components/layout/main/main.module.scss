@@ -1,0 +1,7 @@
+@use "styles/_var.module.scss" as *;
+
+.main {
+    width: $mainWidth;
+    display: flex;
+    justify-content: center;
+}

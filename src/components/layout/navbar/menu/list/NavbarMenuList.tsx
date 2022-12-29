@@ -5,28 +5,36 @@ import cl from "./navbarMenuList.module.scss";
 import { NAV_LINKS } from "./const";
 import { useCheckingActivePage } from "hook";
 import { INavbarMenuList } from "./types";
+import { changeClassName, IChangeClassName } from "utils";
 
 export const NavbarMenuList: FC<INavbarMenuList> = ({ isOpened }) => {
     const { activePage, onSetActivePage } = useCheckingActivePage();
 
-    const changeClassNameNav = (): string => {
-        if (isOpened) {
-            return `${cl.nav} ${cl.nav_enabled}`;
-        } else {
-            return `${cl.nav} ${cl.nav_disabled}`;
-        }
+    const paramsNav: IChangeClassName = {
+        defaultClass: cl.nav,
+        interactiveClass: {
+            start: cl.nav_enabled,
+            end: cl.nav_disabled,
+        },
+        trigger: isOpened,
     };
 
     const changeClassNameLink = (href: string): string => {
-        if (activePage === href) {
-            return `${cl.link} ${cl.link_active}`;
-        } else {
-            return `${cl.link} ${cl.link_inactive}`;
+        const trigger = activePage === href
+
+        const params: IChangeClassName = {
+            defaultClass: cl.link,
+            interactiveClass: {
+                start: cl.link_active,
+                end: cl.link_inactive,
+            }, 
+            trigger,
         }
+        return changeClassName(params)
     };
 
     return (
-        <nav className={changeClassNameNav()}>
+        <nav className={changeClassName(paramsNav)}>
             {NAV_LINKS.map(({ id, title, href }) => (
                 <Link
                     className={changeClassNameLink(href)}
